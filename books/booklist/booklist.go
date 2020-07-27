@@ -30,6 +30,7 @@ func NewService(dataDirectory string) (*Service, error) {
 	return &Service{books: books}, nil
 }
 
+// GetByAuthor returns all the books by the given author.
 func (s *Service) GetByAuthor(authorName string) []*Book {
 	var books []*Book
 	for _, b := range s.books {
