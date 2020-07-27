@@ -21,8 +21,8 @@ The function `NoPipleline()` uses both these functions to generate 50 squares
  and print them out. It also prints the time elapsed. (It runs when you do
   `go run main.go`)
  
-**Create a new function, `Pipeline()`, that generates 50 squares concurrently
-, by using the pipeline pattern.**
+**Create a new function, `Pipeline()`, that uses the pipeline pattern to
+ generate and print 50 squares concurrently.**
 
 Hint: Your pipeline will run three functions that you write, perhaps named:
 * `GenerateNumbers`
