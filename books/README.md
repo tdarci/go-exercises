@@ -3,7 +3,7 @@
 This set of exercises involves creating a "pipeline", a concept that requires
  channels and goroutines.
  
-## Exercise 1: A Simple Pipeline
+## Exercise 1a: A Simple Pipeline
 
 For this exercise, you will create a simple Go pipeline.
 
@@ -13,7 +13,7 @@ For this exercise, you will create a simple Go pipeline.
    dated. The part of the article up to the "Stopping short" section are the
     most relevant.)
     
-Head to the file `simple\squares.go`. This file contains a function that
+Take a look at the file `simple\squares.go`. This file contains a function that
  generates a random number, as well as a function that takes a number and
   squares it. Each function is bit slow at doing its work.
   
@@ -29,10 +29,16 @@ Hint: Your pipeline will run three functions that you write, perhaps named:
 * `SquareNumbers`    
 * `PrintNumbers`
  
-## Exercise 2: Overlapping Words
+## Exercise 1b: Multiple Concurrent Workers
 
-Given the name of an author, write a program that prints out a list of all
- the words that appear in _all_ of their books (of four letters or more).
+For this exercise, take your solution from Exercise 1a and make it run faster
+ by running multiple instances (5 might be a good number) of `SquareNumbers` at  the same time.
+
+## Exercise 2a: Overlapping Words
+
+**Given the name of an author, write a program that prints out a list of all
+ the words that appear in _all_ of their books (of four letters or more). Use
+  a pipleline in order to allow for concurrent processing.**
  
 ----------
 
@@ -62,13 +68,21 @@ If we supply our program with the name "SANDY" we will get back: `baseball
 
 ----------
 
-To solve this problem, you have been given two functions, shown here:
+To solve this problem, you have been given two services, shown here:
+* `booklist.Service`
+    * `.GetByAuthor(authorName string) []*Book`
+* `bookdetails.Service`
+    * `.Get(filename string) (io.ReadCloser, error)`
 
+Their usage is shown in the function `tryBookFunctions()` in `main.go`. Running
+`go run main.go` will cause this function to be executed. **NOTE: You must
+ update `dataDirectory` to your directory in order for this to work.**
 
+## Exercise 2b: Cancellation
 
+In this exercise we will add the ability to cancel an in-progress pipeline. 
 
-
-note: Go piplelines
-
-
-note: context
+**Gracefully shut down your program when you receive cancellation from the
+ operating system (Ctrl-C). Do this by adding a `context.Context` to each
+  function in the pipeline from Exercise 2a and paying attention to it getting
+   canceled.**
