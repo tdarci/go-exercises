@@ -38,7 +38,8 @@ func NoPipleline() {
 	start := time.Now()
 	for i := 0; i < 50; i++ {
 		in := GenerateNum()
-		fmt.Printf(" * %d --> %d\n", in, SlowSquare(in))
+		fmt.Printf("%d --> %d. ", in, SlowSquare(in))
 	}
+	fmt.Println("")
 	fmt.Printf("Elapsed: %s\n", time.Now().Sub(start))
 }

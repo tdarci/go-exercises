@@ -14,7 +14,13 @@ const dataDirectory = "/Users/tom/src/goplain/src/github.com/tdarci/go-exercises
 
 func main() {
 	simple.NoPipleline()
-	tryBookFunctions()
+
+	// These are solutions. Uncomment to see them run.
+	//simple.Pipeline()
+	//simple.ConcurrentPipeline()
+
+	// Uncomment this to see the book functions in action.
+	// tryBookFunctions()
 }
 
 func tryBookFunctions() {
