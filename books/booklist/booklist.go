@@ -6,6 +6,7 @@ import (
 	"strings"
 
 	"github.com/tdarci/go-exercises/books/data"
+	"github.com/tdarci/go-exercises/books/sloth"
 )
 
 type Book struct {
@@ -14,12 +15,9 @@ type Book struct {
 	Filename string
 }
 
-const (
-	dataFileName = "_booklist.csv"
-)
-
 type Service struct {
 	books []*Book
+	sloth *sloth.Sloth
 }
 
 func NewService() (*Service, error) {
@@ -27,11 +25,12 @@ func NewService() (*Service, error) {
 	if err != nil {
 		return nil, err
 	}
-	return &Service{books: books}, nil
+	return &Service{books: books, sloth: sloth.New()}, nil
 }
 
 // GetByAuthor returns all the books by the given author.
 func (s *Service) GetByAuthor(authorName string) []*Book {
+	s.sloth.Wait()
 	var books []*Book
 	for _, b := range s.books {
 		if strings.ToLower(authorName) == strings.ToLower(b.Author) {
@@ -41,6 +40,7 @@ func (s *Service) GetByAuthor(authorName string) []*Book {
 	return books
 }
 
+// loadFile initializes the list service by reading the book list data into memory.
 func loadFile() ([]*Book, error) {
 
 	listData := strings.NewReader(data.Booklist)
@@ -57,7 +57,8 @@ func loadFile() ([]*Book, error) {
 	var readErr error
 	var books []*Book
 	for {
-		row, readErr := reader.Read()
+		var row []string
+		row, readErr = reader.Read()
 		if readErr != nil {
 			break
 		}
@@ -66,7 +67,6 @@ func loadFile() ([]*Book, error) {
 			Filename: row[1],
 			Title:    row[2],
 		})
-
 	}
 
 	if readErr == io.EOF {
