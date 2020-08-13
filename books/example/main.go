@@ -4,13 +4,15 @@ import (
 	"fmt"
 	"log"
 
+	"github.com/tdarci/go-exercises/books/simple"
+
 	"github.com/tdarci/go-exercises/books/bookdetails"
 	"github.com/tdarci/go-exercises/books/booklist"
 )
 
 func main() {
 	// Uncomment to see the no pipeline version of simple.
-	//simple.NoPipeline()
+	simple.NoPipeline()
 
 	// These are solutions. Uncomment to see them run.
 	//simple.Pipeline()

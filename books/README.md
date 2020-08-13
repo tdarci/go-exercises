@@ -13,16 +13,19 @@ For this exercise, you will create a simple Go pipeline.
    dated. The part of the article up to the "Stopping short" section are the
     most relevant.)
     
-Take a look at the file `simple\squares.go`. This file contains a function that
+Take a look at the file `simple/squares.go`. This file contains a function that
  generates a random number, as well as a function that takes a number and
   squares it. Each function is bit slow at doing its work.
   
-The function `NoPipleline()` uses both these functions to generate 50 squares
+The function `NoPipeline()` uses both these functions to generate 50 squares
  and print them out. It also prints the time elapsed. (It runs when you do
-  `go run main.go`)
+  `go run main.go` from the `example` directory.)
  
 **Create a new function, `Pipeline()`, that uses the pipeline pattern to
  generate and print 50 squares concurrently.**
+ 
+In order to make the code here available as packages for your code, run `go
+ get -v  github.com/tdarci/go-exercises/books` from any directory in your `GOPATH`.
 
 Hint: Your pipeline will run three functions that you write, perhaps named:
 * `GenerateNumbers`
@@ -74,9 +77,8 @@ To solve this problem, you have been given two services, shown here:
 * `bookdetails.Service`
     * `.Get(filename string) (io.ReadCloser, error)`
 
-Their usage is shown in the function `tryBookFunctions()` in `main.go`. Running
-`go run main.go` will cause this function to be executed. **NOTE: You must
- update `dataDirectory` to your directory in order for this to work.**
+Their usage is shown in the function `tryBookFunctions()` in `example/main.go`. Running
+`go run main.go` in `example/` will cause this function to be executed.
 
 ## Exercise 2b: Cancellation
 
