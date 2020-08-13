@@ -3,9 +3,9 @@ package booklist
 import (
 	"encoding/csv"
 	"io"
-	"os"
-	"path/filepath"
 	"strings"
+
+	"github.com/tdarci/go-exercises/books/data"
 )
 
 type Book struct {
@@ -22,8 +22,8 @@ type Service struct {
 	books []*Book
 }
 
-func NewService(dataDirectory string) (*Service, error) {
-	books, err := loadFile(dataDirectory)
+func NewService() (*Service, error) {
+	books, err := loadFile()
 	if err != nil {
 		return nil, err
 	}
@@ -41,19 +41,15 @@ func (s *Service) GetByAuthor(authorName string) []*Book {
 	return books
 }
 
-func loadFile(dataDirectory string) ([]*Book, error) {
+func loadFile() ([]*Book, error) {
 
-	f, err := os.Open(filepath.Join(dataDirectory, dataFileName))
-	if err != nil {
-		return nil, err
-	}
-	defer f.Close()
+	listData := strings.NewReader(data.Booklist)
 
-	reader := csv.NewReader(f)
+	reader := csv.NewReader(listData)
 	reader.ReuseRecord = true
 	reader.FieldsPerRecord = 0
 	reader.TrimLeadingSpace = true
-	_, err = reader.Read() // header row
+	_, err := reader.Read() // header row
 	if err != nil {
 		return nil, err
 	}

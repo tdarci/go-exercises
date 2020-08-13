@@ -33,7 +33,7 @@ func wait() {
 }
 
 // NoPipeline generates 50 squares of random numbers, one after the other.
-func NoPipleline() {
+func NoPipeline() {
 	fmt.Println("== Generating Squares Without a Pipeline...")
 	start := time.Now()
 	for i := 0; i < 50; i++ {

@@ -6,21 +6,21 @@ import (
 
 	"github.com/tdarci/go-exercises/books/bookdetails"
 	"github.com/tdarci/go-exercises/books/booklist"
-	"github.com/tdarci/go-exercises/books/simple"
 )
 
 // ***CHANGE THIS TO YOUR DIRECTORY***
 const dataDirectory = "/Users/tom/src/goplain/src/github.com/tdarci/go-exercises/books/data"
 
 func main() {
-	simple.NoPipleline()
+	// Uncomment to see the no pipeline version of simple.
+	//simple.NoPipeline()
 
 	// These are solutions. Uncomment to see them run.
 	//simple.Pipeline()
 	//simple.ConcurrentPipeline()
 
 	// Uncomment this to see the book functions in action.
-	// tryBookFunctions()
+	tryBookFunctions()
 }
 
 func tryBookFunctions() {
@@ -29,7 +29,7 @@ func tryBookFunctions() {
 	fmt.Println("Trying out book functions...")
 	fmt.Println("")
 
-	listService, err := booklist.NewService(dataDirectory)
+	listService, err := booklist.NewService()
 	if err != nil {
 		log.Fatalf("Unable to create list service: %s", err)
 	}
@@ -51,8 +51,6 @@ func tryBookFunctions() {
 		if err != nil {
 			log.Fatalf("Error getting book: %s", err)
 		}
-
-		defer firstBook.Close()
 
 		start := make([]byte, 256)
 		count, readErr := firstBook.Read(start)
