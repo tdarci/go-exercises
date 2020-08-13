@@ -76,7 +76,7 @@ To solve this problem, you have been given two services, shown here:
 * `booklist.Service`
     * `.GetByAuthor(authorName string) []*Book`
 * `bookdetails.Service`
-    * `.Get(filename string) (io.ReadCloser, error)`
+    * `.Get(filename string) (io.Reader, error)`
 
 Their usage is shown in the function `tryBookFunctions()` in `example/main.go`. Running
 `go run main.go` in `example/` will cause this function to be executed.
