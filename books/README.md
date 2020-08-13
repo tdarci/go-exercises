@@ -25,7 +25,8 @@ The function `NoPipeline()` uses both these functions to generate 50 squares
  generate and print 50 squares concurrently.**
  
 In order to make the code here available as packages for your code, run `go
- get -v  github.com/tdarci/go-exercises/books` from any directory in your `GOPATH`.
+ get -v -u  github.com/tdarci/go-exercises/books` from any directory in your
+  `GOPATH`.
 
 Hint: Your pipeline will run three functions that you write, perhaps named:
 * `GenerateNumbers`
