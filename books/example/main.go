@@ -8,9 +8,6 @@ import (
 	"github.com/tdarci/go-exercises/books/booklist"
 )
 
-// ***CHANGE THIS TO YOUR DIRECTORY***
-const dataDirectory = "/Users/tom/src/goplain/src/github.com/tdarci/go-exercises/books/data"
-
 func main() {
 	// Uncomment to see the no pipeline version of simple.
 	//simple.NoPipeline()
@@ -34,7 +31,7 @@ func tryBookFunctions() {
 		log.Fatalf("Unable to create list service: %s", err)
 	}
 
-	detailService := bookdetails.NewService(dataDirectory)
+	detailService := bookdetails.NewService()
 
 	authorName := "William Shakespeare"
 

@@ -13,11 +13,10 @@ var (
 )
 
 type Service struct {
-	dataDirectory string
 }
 
-func NewService(dataDirectory string) *Service {
-	return &Service{dataDirectory: dataDirectory}
+func NewService() *Service {
+	return &Service{}
 }
 
 // Get returns the contents of a given book file. Make sure to close the returned
