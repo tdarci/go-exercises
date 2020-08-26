@@ -50,7 +50,7 @@ Your code should:
 
 - have at least one package (not just `main`)
 - have tests
-- be checked into github (I reccommend making a repo for all your exercise work.)
+- be checked into github (I recommend making a repo for all your exercise work.)
 
 ### Exercise #2: Image from URL
 
