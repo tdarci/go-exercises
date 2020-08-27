@@ -53,6 +53,10 @@ What about Mercurial? Or Subversion, CSV, Perforce, Team Foundation Server, Darc
 
 There is a lot you can do with git. What follows is a path through the commands you will need to get a good working process. Also note that gitHub aims to make some of git easier via UI buttons, but my tendency is to stay with the command line for most things.
 
+// TODO: Add diagram of... local... remote ("origin")... github... git runs where... local commands vs. commands with remotes... peer to peer...
+
+// TODO: Add starter set of git terms. repository. commit. workspace. index. branch. tag. remote. origin. .git directory. commands: clone. fetch. branch. checkout. add. commit. push. merge. rebase. 
+
 ### Get Set Up
 
 1. Install git.
@@ -96,6 +100,38 @@ This is the process:
 4. Request reviews on your pull request.
 5. Adjust code based on feedback (see step 2)
 6. Merge your pull request into the default branch (and delete the remote and local branches)
+
+#### Work on a Feature: Create a branch
+
+#### Work on a Feature: Work...
+
+#### Work on a Feature: Submit a PR
+
+#### Work on a Feature: Request Reviews
+
+#### Work on a Feature: Adjust Code
+
+#### Work on a Feature: Merge Branch into Default Branch
+
+### Git Commands to Know
+
+#### clone
+
+#### fetch
+
+#### branch
+
+#### checkout
+
+#### add
+
+#### commit
+
+#### push
+
+#### merge
+
+#### rebase
 
 ## Bonus: How Does Git Work?
 
