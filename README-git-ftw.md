@@ -74,6 +74,14 @@ commands you will need to get a good working process. Also note that gitHub
 aims to make some of git easier via UI buttons, but my tendency is to stay
 with the command line for most things.
 
+But first, these resources may be helpful (now or to come back to for reference):
+
+- [Git tutorial for beginners](https://www.code-learner.com/git-tutorial-for-beginners/)
+- [This visual walk-through can help you see some of the git concepts](https://agripongit.vincenttunru.com/)
+- [This visual guide is kind of interesting too](https://marklodato.github.io/visual-git-guide/index-en.html).
+- [The docs](https://git-scm.com/docs)
+- [This interactive thing is cool](https://ndpsoftware.com/git-cheatsheet.html)
+
 ------------------------------------------------------------
 
 ### Get Set Up
@@ -372,11 +380,3 @@ direct descendant of the current `master`, instead of getting behind.
 ## Bonus: How Does Git Work?
 
 __Mind-Bender (a must-read):__ Once you've used git for a little while, read [Git from the Bottom Up](https://jwiegley.github.io/git-from-the-bottom-up/). __It's illuminating.__
-
-But first, these guides may be helpful:
-
-- [This visual walk-through can help you see some of the git concepts](https://agripongit.vincenttunru.com/)
-- [Git tutorial for beginners](https://www.code-learner.com/git-tutorial-for-beginners/)
-- [This visual guide is kind of interesting too](https://marklodato.github.io/visual-git-guide/index-en.html).
-- [The docs](https://git-scm.com/docs)
-- [This interactive thing is cool](https://ndpsoftware.com/git-cheatsheet.html)
