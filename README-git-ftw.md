@@ -31,12 +31,15 @@ No.
 Git is an executable program that you run on your machine. Github is a service
 that is built _on top of git_.
 
-There are two big benefits of github:
+Here are two big benefits of github:
 
 - Github gives you a place in the ☁️ to store a copy of your git repository. (And therefore a place for several people to easily share their code.)
 - Github has a helpful system for reviewing code before it becomes part of the main area of the code (a.k.a. "pull requests").
 
 Because of these benefits, __I recommend using gitHub as part of your git solution__.
+
+GitHub has other features too, like support for continuous integration, but
+let's not worry about those now.
 
 ## Why Should I Use Git (and GitHub)?
 
@@ -79,7 +82,7 @@ But first, these resources may be helpful (now or to come back to for reference)
 - [Git tutorial for beginners](https://www.code-learner.com/git-tutorial-for-beginners/)
 - [This visual walk-through can help you see some of the git concepts](https://agripongit.vincenttunru.com/)
 - [This visual guide is kind of interesting too](https://marklodato.github.io/visual-git-guide/index-en.html).
-- [The docs](https://git-scm.com/docs)
+- [Git docs](https://git-scm.com/docs)
 - [This interactive thing is cool](https://ndpsoftware.com/git-cheatsheet.html)
 
 ------------------------------------------------------------
@@ -88,7 +91,7 @@ But first, these resources may be helpful (now or to come back to for reference)
 
 1. Install git.
 2. Create a gitHub account (and setup ssh access to it).
-3. As a helper to see what's going on (but NOT to run git commands), you may want to install one of these: SourceTree from Atlassian (Mac, Windows), GitKraken (Linux). [See here for more](https://git-scm.com/downloads/guis).
+3. You may also want to install one of these helpers to see what's going on (but NOT to run git commands): SourceTree from Atlassian (Mac, Windows), GitKraken (Linux). [See here for more](https://git-scm.com/downloads/guis).
 
 ------------------------------------------------------------
 
@@ -270,19 +273,89 @@ on gitHub to merge it into the `main` branch.
 
 ------------------------------------------------------------
 
-### Git Commands to Know
+## Git Terminology
 
-// TODO: Add diagram of... local... remote ("origin")... github... git runs
-// where... local commands vs. commands with remotes... peer to peer...
+### repository
 
-// TODO: Add starter set of git terms. repository. commit. workspace. index.
-// branch. tag. remote. origin. .git directory. 
+A repository contains all the files in a codebase.
 
-#### clone: Get a copy of a repository from any git server onto your local machine.
+It contains _all the versions_ of the files in that codebase.
+
+This means that I can be working on two different features in this codebase,
+each represented as a different version of the codebase, and the repository
+contains all the files for both. It also means that a version I worked on two
+years ago is still available to me, should I want to see it.
+
+When I work inside a git repository on my machine, I have the whole
+repository. All the versions. In addition, This same repository may exist on
+other machines. From my perspective, each of these machines is in git terms a
+**remote**. And usually, for example when working with gitHub, there is a
+special remote named **"origin"** that is the central location for multiple
+developers to synchronize with.
+
+A repository lives inside a directory. It contains the current version of all
+its files, as well as a special directory called `.git` that has all the
+information required to construct any version of the repository in the working
+area.
+
+### workspace
+
+A working area or workspace represents the current state of all the files in
+your repository. By "current state", I mean the state that you are working
+with at a given moment.
+
+So, for example, I am working on a feature for "animate buttons". All the
+files in my working area are in the state I have made them for creating this
+feature. Most of the files will be unchanged, and the ones I need to edit or
+add to make this feature will be changed.
+
+At some point I will want to save the current state of the files. A full
+representation of all the files is called a **commit**. I can create commits
+as often as I like. And each commit keeps track of the commit that came before
+it, making it easy to see how the code has changed.
+
+To get my changed files into a commit, the workspace has a concept of...
+
+### ...workspace index
+
+The workplace index is a _staging area_ in which you are telling git, "the
+next time I commit, these are the files, in these particular states, that I
+want to be changed in this commit."
+
+### commit
+
+Each commit has a hash number associated with it. And git loves to work with
+these numbers, though, thankfully, it is happy working with a shorter
+representation of the number if it is unique.
+
+### branch & tag
+
+How the heck do we keep track of all these commits?
+
+With branches.
+
+And tags.
+
+Branches and tags are just ways of putting a label onto a commit. Tags are the
+simplest. A tag points to a specified commit. Essentially you are saying, "I
+wish to call commit 6e1fb67372da51614862ccf71c890f92a98017d1 'v1.2.3".
+
+Branches are a little cooler, in that they point to one commit, but... they can _change which commit they point to_.
+
+Typically, you are working in the context of a branch (you don't have, to be,
+but that's kind of a weird state in git, and you will see lots of messages
+about "detached head" 🤯). **Whenever you make a new commit while working in a
+branch, the branch will now point to that new commit.** Simple, but magical.
+
+## Git Commands to Know
+
+_A diagram sure would be nice here... some day... some day..._
+
+### clone: Get a copy of a repository from any git server onto your local machine.
 
 example: `git clone git@github.com:tdarci/mygo.git`
 
-#### fetch: Get the latest changes that exist on your main remote git server(a.k.a. "origin"), without changing any of your local code.
+### fetch: Get the latest changes that exist on your main remote git server(a.k.a. "origin"), without changing any of your local code.
 
 `git fetch` grabs all the latest changes from the "origin" remote and brings them to your machine.
 
@@ -297,7 +370,7 @@ It **does not** overwrite anything you are working on. Instead, it creates
   remotes/origin/main
 ```
 
-#### checkout
+### checkout
 
 Checkout does a lot. Too much maybe.
 
@@ -307,12 +380,12 @@ Create a new branch like so, based on the current commit you are on:
 Checkout also lets you grab versions of individual files or kind of destroy
 your current workspace.
 
-#### branch
+### branch
 
 Run `git branch` or `git branch -a` to see the branches on your machine for
 the current repo.
 
-#### add
+### add
 
 Use `git add` to add files to the "index" (where they are now ready to be
 committed). Some examples:
@@ -320,12 +393,12 @@ committed). Some examples:
 - `git add .`: Add all the changed and new files that are here to the index.
 - `git add -u`: Add all the changed files to the index.
 
-#### commit
+### commit
 
 Run `git commit -m 'descritiption of commit'` to create a git commit. The
 commit is the basic unit of work in the world of git.
 
-#### push
+### push
 
 Push the current branch to the remote origin.
 
@@ -333,7 +406,7 @@ For a branch that has never been sent to origin: `git push --set-upstream origin
 
 For a branch that has already been sent: `git push`
 
-#### merge
+### merge
 
 Use `git merge` to bring code together. Here is an example...
 
@@ -365,7 +438,7 @@ git push
 
 ```
 
-#### rebase
+### rebase
 
 Rebase is a weird and important command.
 
