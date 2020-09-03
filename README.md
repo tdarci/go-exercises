@@ -1,13 +1,15 @@
 # go-exercises
 
-little things for learning Go
+• little things for learning Go •
 
 ## The Exercises
 
-here you go...
+Here you go...
 
 - [Concurrency and Pipelines with GoRoutines, Channels and a Book Service](./books/README.md)
 - [A Photo Filter Program](./photofilter/README.md)
+
+I recommend using git when working on exercises. [Here is a guide I created](./README-git-ftw.md).
 
 ## Resources
 
